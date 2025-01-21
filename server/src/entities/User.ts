@@ -13,7 +13,13 @@ export class User extends BaseEntity {
     first_name: string;
     @Column()
     last_name: string;
+    @Column()
+    email: string;
+    @Column()
+    password: string;
 
+    @Column()
+    has_alert: boolean;
     @Column()
     student: boolean;
     @Column()
