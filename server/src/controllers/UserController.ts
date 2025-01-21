@@ -40,7 +40,7 @@ export async function createUser(req: Request, res: Response) {
 // Creation of the function getUser that get an user.
 export async function getUser(req: Request, res: Response) {
     const user = await User.findOne({
-        where: { id: parseInt(req.params.id) }
+        where: { id: Number(req.params.id) }
     });
 
     if (!user) return res.sendStatus(404);
