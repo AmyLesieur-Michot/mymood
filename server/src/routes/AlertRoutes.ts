@@ -3,10 +3,10 @@ import { createAlert, deleteAlert, getAlert, getAlerts, updateAlert } from "../c
 
 const router = Router();
 
-router.arguments('/', getAlerts);
-router.arguments('/', createAlert);
-router.arguments('/:id', getAlert);
-router.arguments('/:id', updateAlert);
-router.arguments('/:id', deleteAlert);
+router.get('/', getAlerts);
+router.post('/', createAlert);
+router.get('/:id', getAlert);
+router.put('/:id', updateAlert);
+router.delete('/:id', deleteAlert);
 
 export default router;

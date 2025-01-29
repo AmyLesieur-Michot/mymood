@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { getUser } from "../controllers/UserController";
+import { updateAlert } from "../controllers/AlertController";
 
 const router = Router();
 
-router.arguments('/:id', getUser);
+router.arguments('/:id', updateAlert);
 
 export default router;

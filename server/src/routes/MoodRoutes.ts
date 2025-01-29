@@ -3,10 +3,10 @@ import { createMood, deleteMood, getMood, getMoods, updateMood } from "../contro
 
 const router = Router();
 
-router.arguments('/', getMoods);
-router.arguments('/', createMood);
-router.arguments('/:id', getMood);
-router.arguments('/:id', updateMood);
-router.arguments('/:id', deleteMood);
+router.get('/', getMoods);
+router.post('/', createMood);
+router.get('/:id', getMood);
+router.put('/:id', updateMood);
+router.delete('/:id', deleteMood);
 
 export default router;

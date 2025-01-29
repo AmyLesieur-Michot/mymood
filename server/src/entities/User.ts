@@ -7,39 +7,37 @@ import { Group } from "./Group";
 @Entity()
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    first_name: string;
+    first_name!: string;
     @Column()
-    last_name: string;
+    last_name!: string;
     @Column()
-    email: string;
+    email!: string;
     @Column()
-    password: string;
+    password!: string;
 
     @Column()
-    has_alert: boolean;
+    student!: boolean;
     @Column()
-    student: boolean;
+    supervisor!: boolean;
     @Column()
-    supervisor: boolean;
-    @Column()
-    admin: boolean;
+    admin!: boolean;
 
     @OneToMany(() => Mood, (mood) => mood.user)
-    moods: Mood[];
+    moods!: Mood[];
 
     @OneToMany(() => Alert, (alert) => alert.user)
-    alerts: Alert[];
+    alerts!: Alert[];
 
     @OneToMany(() => Blacklist, (blacklist) => blacklist.student)
-    students: Blacklist[];
+    students!: Blacklist[];
 
     @OneToMany(() => Blacklist, (blacklist) => blacklist.supervisor)
-    supervisors: Blacklist[];
+    supervisors!: Blacklist[];
 
     @ManyToMany(() => Group)
     @JoinTable()
-    groups: Group[];
+    groups!: Group[];
 }

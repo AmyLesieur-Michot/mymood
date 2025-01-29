@@ -4,13 +4,13 @@ import { User } from "./User";
 @Entity()
 export class Alert extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
     date: Date;
 
-    @Column()
-    resolved: boolean;
+    @Column({ nullable: true })
+    resolved: Date | null;
 
     @ManyToOne(() => User, (user) => user.alerts)
     user: User;
