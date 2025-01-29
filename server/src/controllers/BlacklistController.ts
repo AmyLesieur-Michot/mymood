@@ -8,8 +8,14 @@ export async function getBlacklists(req: Request, res: Response) {
 
 // Creation of the function createBlacklist that create an blacklist.
 export async function createBlacklist(req: Request, res: Response) {
-    if (!('student' in req.body)) return res.status(400).send('Missing "student" field');
-    if (!('supervisor' in req.body)) return res.status(400).send('Missing "supervisor" field');
+    if (typeof req.body.student !== 'number' || !Number.isSafeInteger(req.body.student)) {
+        res.status(400).send('Missing "student" field');
+        return;
+    } 
+    if (typeof req.body.supervisor !== 'number' || !Number.isSafeInteger(req.body.supervisor)) {
+        res.status(400).send('Missing "supervisor" field');
+        return;
+    } 
 
     const { student, supervisor } = req.body;
 
@@ -23,39 +29,19 @@ export async function createBlacklist(req: Request, res: Response) {
     res.sendStatus(201);
 }
 
-// Creation of the function getBlacklist that get an blacklist.
-export async function getBlacklist(req: Request, res: Response) {
-    const blacklist = await Blacklist.findOne({
-        where: { id: Number(req.params.id) }
-    });
-
-    if (!blacklist) return res.sendStatus(404);
-
-    res.send(blacklist);
-}
-
-// Creation of the function updateBlacklist that update the details of an blacklist.
-export async function updateBlacklist(req: Request, res: Response) {
-    if (!('student' in req.body)) return res.status(400).send('Missing "student" field');
-    if (!('supervisor' in req.body)) return res.status(400).send('Missing "supervisor" field');
-
-    const blacklist = await Blacklist.findOne({
-        where: { id: Number(req.params.id) }
-    });
-
-    if (!blacklist) return res.sendStatus(404);
-
-    blacklist.student = req.body.student;
-    blacklist.supervisor = req.body.supervisor;
-}
-
 // Creation of the function deleteBlacklist that delete an blacklist.
 export async function deleteBlacklist(req: Request, res: Response) {
     const blacklist = await Blacklist.findOne({
-        where: { id: Number(req.params.id) }
+        where: {
+            supervisor:{ id: Number(req.params.supervisorId)},
+            student:{ id: Number(req.params.studentId)},
+        },
     });
 
-    if (!blacklist) return res.sendStatus(404);
+    if (!blacklist) {
+        res.sendStatus(404);
+        return;
+    } 
 
     await blacklist.remove();
 

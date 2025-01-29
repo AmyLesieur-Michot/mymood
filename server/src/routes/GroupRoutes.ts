@@ -3,10 +3,10 @@ import { getGroups, createGroup, getGroup, updateGroup, deleteGroup } from "../c
 
 const router = Router();
 
-router.arguments('/', getGroups);
-router.arguments('/', createGroup);
-router.arguments('/:id', getGroup);
-router.arguments('/:id', updateGroup);
-router.arguments('/:id', deleteGroup);
+router.get('/', getGroups);
+router.post('/', createGroup);
+router.get('/:id', getGroup);
+router.put('/:id', updateGroup);
+router.delete('/:id', deleteGroup);
 
 export default router;

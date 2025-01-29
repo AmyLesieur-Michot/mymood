@@ -7,8 +7,7 @@
         "strict": true,
         "outDir": "build",
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "strictPropertyInitialization": false
+        "experimentalDecorators": true
     },
     "include": [
         "src",

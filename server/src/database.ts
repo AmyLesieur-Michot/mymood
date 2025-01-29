@@ -1,4 +1,9 @@
 import { DataSource } from "typeorm";
+import { Group } from "./entities/Group";
+import { Mood } from "./entities/Mood";
+import { Blacklist } from "./entities/Blacklist";
+import { Alert } from "./entities/Alert";
+import { User } from "./entities/User";
 
 export default new DataSource({
     type: "postgres",
@@ -10,5 +15,10 @@ export default new DataSource({
     logger: "advanced-console",
     synchronize: true,
     entities: [
+        User,
+        Group,
+        Mood,
+        Blacklist,
+        Alert
     ]
 })
