@@ -4,11 +4,11 @@ import { User } from "./User";
 @Entity()
 export class Blacklist extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @ManyToOne(() => User, (user) => user.students)
-    student: User;
+    student!: User;
 
     @ManyToOne(() => User, (user) => user.supervisors)
-    supervisor: User;
+    supervisor!: User;
 }

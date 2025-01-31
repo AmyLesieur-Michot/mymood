@@ -19,6 +19,6 @@ export default new DataSource({
         Group,
         Mood,
         Blacklist,
-        Alert
-    ]
-})
+        Alert,
+    ],
+});

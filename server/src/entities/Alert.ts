@@ -7,11 +7,11 @@ export class Alert extends BaseEntity {
     id!: number;
 
     @Column()
-    date: Date;
+    date!: Date;
 
     @Column({ nullable: true })
-    resolved: Date | null;
+    resolved!: Date | null;
 
     @ManyToOne(() => User, (user) => user.alerts)
-    user: User;
+    user!: User;
 }
