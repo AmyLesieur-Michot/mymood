@@ -4,11 +4,11 @@ import { User } from "./User";
 @Entity()
 export class Mood extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    score: number;
+    score!: number;
 
     @ManyToOne(() => User, (user) => user.moods)
-    user: User;
+    user!: User;
 }
