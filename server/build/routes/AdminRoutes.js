@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const UserController_1 = require("../controllers/UserController");
+const GroupController_1 = require("../controllers/GroupController");
+const AlertController_1 = require("../controllers/AlertController");
+const router = (0, express_1.Router)();
+router.get('/', UserController_1.getUsers);
+router.post('/', UserController_1.createUser);
+router.get('/:id', UserController_1.getUser);
+router.patch('/:id', UserController_1.updateUser);
+router.delete('/:id', UserController_1.deleteUser);
+router.post('/group/:groupId/add/:userId', UserController_1.addUserToGroup),
+    router.get('/groups', GroupController_1.getGroups);
+router.post('/group', GroupController_1.createGroup);
+router.get('/group/:id', GroupController_1.getGroup);
+router.put('/group/:id', GroupController_1.updateGroup);
+router.delete('/group/:id', GroupController_1.deleteGroup);
+router.put('/alert/:id', AlertController_1.updateAlert);
+exports.default = router;

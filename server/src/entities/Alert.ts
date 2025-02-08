@@ -6,10 +6,10 @@ export class Alert extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column()
+    @Column({ type: "timestamp" })
     date!: Date;
 
-    @Column({ nullable: true })
+    @Column({ type: "timestamp", nullable: true })
     resolved!: Date | null;
 
     @ManyToOne(() => User, (user) => user.alerts)

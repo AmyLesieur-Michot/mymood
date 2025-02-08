@@ -1,0 +1,18 @@
+<main class="content">
+    <h1>♥♠MyMood♦♣</h1>
+    <form class="form" (submit)="tryLogin(); $event.preventDefault();">
+        <!-- Input avec autocomplétion -->
+        <input list="usernames" name="first_name" id="first_name" class="first_name" [(ngModel)]="first_name" placeholder="User name" />
+        
+        <datalist id="usernames">
+            <option *ngFor="let name of first_names" [value]="name"></option>
+        </datalist>
+
+        <div class="password_container">
+            <input type="password" name="password" id="password" class="password" [(ngModel)]="password" placeholder="Password" />
+            <button type="submit" class="button {{in_error ? 'errored' : ''}}">
+                <img src="lock.svg" alt="Submit" />
+            </button>
+        </div>
+    </form>
+</main>
