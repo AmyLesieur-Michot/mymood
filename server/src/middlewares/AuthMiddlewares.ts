@@ -37,7 +37,7 @@ export async function adminConnected(req: Request, res: Response, next: NextFunc
     next();
 }
 
-async function getUserByToken(token: string): Promise<User | null> {
+export async function getUserByToken(token: string): Promise<User | null> {
     try {
         if (!process.env.JWT_SECRET) {
             throw new Error("JWT_SECRET environment variable is not defined");

@@ -3,6 +3,6 @@ import { updateAlert } from "../controllers/AlertController";
 
 const router = Router();
 
-router.arguments('/:id', updateAlert);
+router.put('/:id', updateAlert);
 
 export default router;

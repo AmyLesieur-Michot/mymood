@@ -10,7 +10,12 @@ app.get('/', (req, res) => {
 });
 
 // Add Middlewares
-app.use(cors());
+app.use(
+    cors({
+      origin: "http://localhost:4200", // Remplace par l'URL de ton frontend
+      credentials: true, // Autorise l'envoi des cookies et headers d'authentification
+    })
+  );
 app.use(express.json());
 app.use(cookieParser());
 

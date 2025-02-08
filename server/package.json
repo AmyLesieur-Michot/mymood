@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon src/index.ts",
+    "start": "tsc-watch --onSuccess \"node build/index.js\"",
     "test": "jest --runInBand"
   },
   "dependencies": {
@@ -21,8 +21,8 @@
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.10.7",
-    "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
+    "tsc-watch": "^6.2.1",
     "typescript": "^5.7.3"
   }
 }

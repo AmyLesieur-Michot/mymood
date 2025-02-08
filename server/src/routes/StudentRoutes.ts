@@ -4,7 +4,7 @@ import { createAlert } from "../controllers/AlertController";
 
 const router = Router();
 
-router.arguments('/', createMood);
-router.arguments('/', createAlert);
+router.post('/mood', createMood);
+router.post('/alert', createAlert);
 
 export default router;

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser, deleteUser, getUser, getUsers, updateUser } from "../controllers/UserController";
+import { addUserToGroup, createUser, deleteUser, getUser, getUsers, updateUser } from "../controllers/UserController";
 import { createGroup, deleteGroup, getGroup, getGroups, updateGroup } from "../controllers/GroupController";
 import { updateAlert } from "../controllers/AlertController";
 
@@ -10,6 +10,7 @@ router.post('/', createUser);
 router.get('/:id', getUser);
 router.patch('/:id', updateUser);
 router.delete('/:id', deleteUser);
+router.post('/group/:groupId/add/:userId', addUserToGroup), 
 
 
 router.get('/groups', getGroups);
@@ -18,6 +19,6 @@ router.get('/group/:id', getGroup);
 router.put('/group/:id', updateGroup);
 router.delete('/group/:id', deleteGroup);
 
-router.put('/:id', updateAlert);
+router.put('/alert/:id', updateAlert);
 
 export default router;
